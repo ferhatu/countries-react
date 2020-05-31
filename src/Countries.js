@@ -6,7 +6,7 @@ const Countries = () => {
     <div className="countries-container">
       {data.map((country) => {
         return (
-          <div className="country">
+          <div key={country.numericCode} className="country">
             <img className="image" src={country.flag} alt="country flag" />
             <h1 className="country-name">{country.name}</h1>
 
