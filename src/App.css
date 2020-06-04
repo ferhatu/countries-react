@@ -17,3 +17,32 @@ body {
   width: 25%;
   /* min-width: 400px; */
 }
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.search-field {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.country-search {
+  font-family: "Lucida Sans Unicode", sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  margin-bottom: 10px;
+  width: 250px;
+  color: black;
+}
+
+.mode {
+  width: 100px;
+  margin-top: 35px;
+  align-items: center;
+}
+body .mode {
+  color: hsl(0, 0%, 100%);
+  --body: hsl(207, 26%, 17%);
+  --background-el: hsl(209, 23%, 22%);
+}
