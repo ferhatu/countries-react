@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import SearchCountry from "./SearchCountry";
+import FilterRegion from "./FilterRegion";
 
 const Countries = (props) => {
   const [countries, setCountries] = useState(props.data);
@@ -8,19 +10,22 @@ const Countries = (props) => {
       props.data.filter((country) => country.name.toLowerCase().includes(value))
     );
   };
-  const handleChange = (e) => {
+  const handleSearch = (e) => {
     filteredCountries(e.target.value.toLowerCase());
+  };
+
+  const countriesFilteredByRegion = (value) => {
+    setCountries(props.data.filter((country) => country.region === value));
+  };
+  const handleFilter = (e) => {
+    countriesFilteredByRegion(e.target.value.toLowerCase());
   };
 
   return (
     <div>
       <div className="search-field">
-        <input
-          onChange={handleChange}
-          type="search"
-          className="country-search"
-          placeholder="Search country"
-        />
+        <SearchCountry handleChange={handleSearch} />
+        <FilterRegion handleChange={handleFilter} />
       </div>
       <div className="countries-container">
         {countries.map((country) => {
